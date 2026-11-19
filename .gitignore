@@ -1,0 +1,7 @@
+# Python
+__pycache__/
+*.pyc
+
+# Private documents: handbooks and the device health report contain personal data and serial numbers
+files/
+*.pdf

@@ -1,0 +1,289 @@
+/* Sentinel HUD theme.
+   Accent cyan #22d3ee · ok #34d399 · note #38bdf8 · attention #fbbf24 · fail #f87171
+   Text #e2ecf8 · secondary #8fa6c1 · muted #6f87a3 · faint #4f6782 */
+
+window.sentinel {
+  background-color: rgba(5, 9, 16, 0.95);
+  background-image:
+    radial-gradient(circle farthest-side at 0% 0%, rgba(34, 211, 238, 0.10), transparent),
+    radial-gradient(circle farthest-side at 100% 100%, rgba(52, 211, 153, 0.06), transparent),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    linear-gradient(to right, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+  color: #e2ecf8;
+  font-family: "Ubuntu Sans", sans-serif;
+}
+
+scrolledwindow, viewport { background: none; }
+
+/* ---------- header ---------- */
+
+.topbar {
+  padding: 10px 14px 9px 16px;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.16);
+  background-image: linear-gradient(to bottom, rgba(34, 211, 238, 0.08), transparent);
+}
+.brand {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 7px;
+  color: #e6faff;
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.6);
+}
+.tagline {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  color: #6f87a3;
+}
+.live {
+  margin-right: 10px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  background-color: rgba(52, 211, 153, 0.06);
+}
+.live-dot {
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 99px;
+  background-color: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+.live-dot.dim { opacity: 0.35; }
+.live-label { font-size: 10.5px; font-weight: 800; letter-spacing: 2px; color: #34d399; }
+.clock { font-family: "Ubuntu Sans Mono", monospace; font-size: 13px; color: #cfe3f7; }
+
+.hud-button {
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  border-radius: 7px;
+  background: none;
+  color: #8fa6c1;
+  border: 1px solid rgba(143, 166, 193, 0.18);
+  box-shadow: none;
+}
+.hud-button:hover {
+  background-color: rgba(34, 211, 238, 0.12);
+  color: #e6faff;
+  border-color: rgba(34, 211, 238, 0.5);
+}
+.hud-button.close:hover {
+  background-color: rgba(248, 113, 113, 0.18);
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
+progressbar.scanbar > trough { min-height: 2px; background: none; border: none; box-shadow: none; }
+progressbar.scanbar > trough > progress {
+  min-height: 2px;
+  border-radius: 0;
+  background-color: #22d3ee;
+  box-shadow: 0 0 10px #22d3ee;
+}
+progressbar.scanbar { transition: opacity 500ms ease-out; }
+
+/* ---------- verdict banner ---------- */
+
+.banner {
+  padding: 10px 20px 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  background-image: linear-gradient(to right, rgba(34, 211, 238, 0.14), rgba(34, 211, 238, 0.02));
+}
+.banner.ok {
+  border-color: rgba(52, 211, 153, 0.5);
+  background-image: linear-gradient(to right, rgba(52, 211, 153, 0.17), rgba(52, 211, 153, 0.02));
+}
+.banner.warn {
+  border-color: rgba(251, 191, 36, 0.45);
+  background-image: linear-gradient(to right, rgba(251, 191, 36, 0.14), rgba(251, 191, 36, 0.02));
+}
+.banner.fail {
+  border-color: rgba(248, 113, 113, 0.55);
+  background-image: linear-gradient(to right, rgba(248, 113, 113, 0.18), rgba(248, 113, 113, 0.02));
+}
+.verdict { font-size: 21px; font-weight: 800; letter-spacing: 3px; color: #a5f3fc; }
+.banner.ok .verdict { color: #6ee7b7; text-shadow: 0 0 16px rgba(52, 211, 153, 0.55); }
+.banner.warn .verdict { color: #fcd34d; text-shadow: 0 0 16px rgba(251, 191, 36, 0.4); }
+.banner.fail .verdict { color: #fca5a5; text-shadow: 0 0 16px rgba(248, 113, 113, 0.5); }
+.verdict-sub { font-size: 13px; color: #c3d3e6; }
+.verdict-meta {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  color: #6f87a3;
+}
+.emblem-glyph { font-size: 26px; font-weight: 900; color: #a5f3fc; }
+.banner.ok .emblem-glyph { color: #34d399; }
+.banner.warn .emblem-glyph { color: #fbbf24; }
+.banner.fail .emblem-glyph { color: #f87171; }
+
+.score-box {
+  padding: 8px 14px;
+  border-left: 1px solid rgba(143, 166, 193, 0.18);
+}
+.score-caption { font-size: 10px; font-weight: 800; letter-spacing: 3px; color: #6f87a3; }
+.score { font-family: "Ubuntu Sans Mono", monospace; font-size: 24px; font-weight: 700; color: #f1f8ff; }
+
+/* ---------- panels ---------- */
+
+.panel {
+  padding: 11px 13px 12px 13px;
+  border-radius: 3px;
+  border: 1px solid rgba(56, 189, 248, 0.13);
+  background-color: rgba(12, 20, 32, 0.8);
+  background-image:
+    linear-gradient(#22d3ee, #22d3ee), linear-gradient(#22d3ee, #22d3ee),
+    linear-gradient(#22d3ee, #22d3ee), linear-gradient(#22d3ee, #22d3ee);
+  background-size: 18px 2px, 2px 18px, 18px 2px, 2px 18px;
+  background-position: left top, left top, right bottom, right bottom;
+  background-repeat: no-repeat;
+}
+.panel-title { font-size: 11px; font-weight: 800; letter-spacing: 3px; color: #22d3ee; }
+.panel-meta {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: #6f87a3;
+}
+
+/* ---------- gauges ---------- */
+
+.gauge-card {
+  padding: 8px 12px 8px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.card-title { font-size: 11px; font-weight: 800; letter-spacing: 3px; color: #8fa6c1; }
+.gauge-value { font-family: "Ubuntu Sans Mono", monospace; font-size: 21px; font-weight: 700; color: #f1f8ff; }
+.gauge-unit { font-size: 9px; font-weight: 800; letter-spacing: 2px; color: #6f87a3; }
+.hw-name { font-size: 12.5px; font-weight: 700; color: #e2ecf8; }
+.hw-line { font-family: "Ubuntu Sans Mono", monospace; font-size: 10.5px; color: #8fa6c1; }
+
+/* CPU card tooltip: per-core breakdown */
+.core-details { padding: 6px 4px 4px 4px; }
+.core-title { font-size: 10.5px; font-weight: 800; letter-spacing: 2.5px; color: #22d3ee; }
+.core-caption { font-size: 9px; font-weight: 800; letter-spacing: 2px; color: #6f87a3; }
+.core-name { font-size: 10.5px; font-weight: 800; letter-spacing: 1.5px; color: #8fa6c1; }
+.core-value { font-family: "Ubuntu Sans Mono", monospace; font-size: 11.5px; font-weight: 700; color: #f1f8ff; }
+.core-dim { font-family: "Ubuntu Sans Mono", monospace; font-size: 10.5px; color: #8fa6c1; }
+.core-temp { font-family: "Ubuntu Sans Mono", monospace; font-size: 11.5px; font-weight: 700; }
+.core-temp.ok { color: #6ee7b7; }
+.core-temp.watch { color: #7dd3fc; }
+.core-temp.warn { color: #fcd34d; }
+.core-sep { background-color: rgba(34, 211, 238, 0.15); }
+.core-verdict { font-size: 11px; color: #c3d3e6; }
+
+/* ---------- tiles ---------- */
+
+.tile {
+  padding: 6px 9px 7px 9px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.025);
+  border-left: 2px solid rgba(34, 211, 238, 0.6);
+}
+.tile.ok { border-left-color: rgba(52, 211, 153, 0.75); }
+.tile.watch { border-left-color: rgba(56, 189, 248, 0.75); }
+.tile.warn { border-left-color: #fbbf24; background-color: rgba(251, 191, 36, 0.06); }
+.tile.fail { border-left-color: #f87171; background-color: rgba(248, 113, 113, 0.08); }
+.tile-caption { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; color: #6f87a3; }
+.tile-value { font-family: "Ubuntu Sans Mono", monospace; font-size: 18px; font-weight: 700; color: #e6faff; }
+.tile-unit { font-family: "Ubuntu Sans Mono", monospace; font-size: 10.5px; color: #6f87a3; }
+
+/* ---------- chips & stats ---------- */
+
+.chip {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  padding: 1px 7px;
+  border-radius: 3px;
+  border: 1px solid rgba(143, 166, 193, 0.35);
+  color: #8fa6c1;
+}
+.chip.ok { color: #34d399; border-color: rgba(52, 211, 153, 0.5); background-color: rgba(52, 211, 153, 0.1); }
+.chip.watch { color: #7dd3fc; border-color: rgba(56, 189, 248, 0.5); background-color: rgba(56, 189, 248, 0.1); }
+.chip.warn { color: #fbbf24; border-color: rgba(251, 191, 36, 0.55); background-color: rgba(251, 191, 36, 0.1); }
+.chip.fail { color: #f87171; border-color: rgba(248, 113, 113, 0.6); background-color: rgba(248, 113, 113, 0.12); }
+
+.stat-caption { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; color: #4f6782; }
+.stat-value { font-family: "Ubuntu Sans Mono", monospace; font-size: 12.5px; font-weight: 700; color: #dbe7f5; }
+.stat-value.watch { color: #7dd3fc; }
+.stat-value.warn { color: #fbbf24; }
+.stat-value.fail { color: #f87171; }
+
+/* ---------- storage ---------- */
+
+.drive {
+  padding: 8px 12px 9px 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.drive-role {
+  font-family: "Ubuntu Sans Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #22d3ee;
+  min-width: 96px;
+}
+.drive-verdict { font-size: 11.5px; color: #6ee7b7; }
+.drive-verdict.watch { color: #7dd3fc; }
+.drive-verdict.warn { color: #fbbf24; }
+.drive-verdict.fail { color: #f87171; }
+
+/* ---------- security matrix ---------- */
+
+.check-row {
+  padding: 3px 8px;
+  border-radius: 4px;
+  transition: background-color 200ms ease-out;
+}
+.check-row:hover { background-color: rgba(34, 211, 238, 0.07); }
+.check-row.warn { background-color: rgba(251, 191, 36, 0.07); }
+.check-row.fail { background-color: rgba(248, 113, 113, 0.1); }
+.badge {
+  min-width: 19px;
+  min-height: 19px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 900;
+  color: #4f6782;
+  background-color: rgba(143, 166, 193, 0.08);
+}
+.check-row.ok .badge { color: #34d399; background-color: rgba(52, 211, 153, 0.15); box-shadow: 0 0 8px rgba(52, 211, 153, 0.3); }
+.check-row.watch .badge { color: #7dd3fc; background-color: rgba(56, 189, 248, 0.15); box-shadow: 0 0 8px rgba(56, 189, 248, 0.3); }
+.check-row.warn .badge { color: #1a1204; background-color: #fbbf24; box-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
+.check-row.fail .badge { color: #1f0707; background-color: #f87171; box-shadow: 0 0 10px rgba(248, 113, 113, 0.55); }
+.check-title { font-size: 12.5px; color: #dbe7f5; }
+.check-row.pending .check-title { color: #6f87a3; }
+.check-value { font-family: "Ubuntu Sans Mono", monospace; font-size: 11.5px; color: #8fa6c1; }
+.check-row.ok .check-value { color: #86efac; }
+.check-row.watch .check-value { color: #7dd3fc; }
+.check-row.warn .check-value { color: #fbbf24; }
+.check-row.fail .check-value { color: #f87171; }
+.check-row.pending .check-value { color: #4f6782; }
+
+/* ---------- power ---------- */
+
+.bat-pct { font-family: "Ubuntu Sans Mono", monospace; font-size: 28px; font-weight: 700; color: #f1f8ff; }
+
+/* ---------- footer & tooltips ---------- */
+
+.footer {
+  padding: 7px 18px 9px 18px;
+  border-top: 1px solid rgba(34, 211, 238, 0.1);
+}
+.footer-text { font-family: "Ubuntu Sans Mono", monospace; font-size: 10.5px; color: #4f6782; }
+
+tooltip {
+  background-color: rgba(8, 14, 24, 0.97);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 6px;
+}
+tooltip label { color: #dbe7f5; font-size: 12px; }
